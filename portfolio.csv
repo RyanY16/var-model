@@ -1,0 +1,4 @@
+ticker,company_name,buy_sell,quantity,purchase_date,purchase_price
+8035.T,Tokyo Electron,buy,1,2025-12-1,32500
+4568.T,Daiichi Sankyo,buy,9,2026-1-13,3600
+7011.T,Mitsubishi Heavy Industries,buy,9,2026-1-13,4445
