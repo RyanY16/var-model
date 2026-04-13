@@ -1,0 +1,4 @@
+ticker,company_name,quantity,price,market_value,weight
+4568.T,Daiichi Sankyo,9,2772.5,24952.5,0.2233935405895387
+7011.T,Mitsubishi Heavy Industries,9,4745.0,42705.0,0.38232726784395354
+8035.T,Tokyo Electron,1,44040.0,44040.0,0.39427919156650776

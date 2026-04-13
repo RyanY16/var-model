@@ -1,0 +1,38 @@
+name: Backfill All
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Full rebuild start date"
+        required: false
+        default: "2025-12-01"
+      end_date:
+        description: "Optional end date override"
+        required: false
+        default: ""
+
+jobs:
+  backfill-all:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Tokyo
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run full pipeline
+        run: |
+          if [ -n "${{ github.event.inputs.end_date }}" ]; then
+            python scripts/run_pipeline.py --mode all --start-date "${{ github.event.inputs.start_date }}" --end-date "${{ github.event.inputs.end_date }}" --timezone Asia/Tokyo
+          else
+            python scripts/run_pipeline.py --mode all --start-date "${{ github.event.inputs.start_date }}" --timezone Asia/Tokyo
+          fi
