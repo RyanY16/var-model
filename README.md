@@ -26,8 +26,6 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-`SUPABASE_SERVICE_ROLE_KEY` needs to be the service role key from Supabase, not the publishable key.
-
 ## Commands
 
 Run the just-passed business day only.
